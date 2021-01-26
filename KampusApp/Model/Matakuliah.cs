@@ -9,11 +9,12 @@ namespace KampusApp.Model
     public class Matakuliah
     {
         [Key]
-        public int IdMatakuliah { get; set; }
+        public int IDMatakuliah { get; set; }
 
         [Required]
-        public string Nama_Matakuliah { get; set; }
+        public string NamaMatakuliah { get; set; }
 
-        public int NIM { get; set; }
+        [Required]
+        public int SKS { get; set; }
     }
 }
