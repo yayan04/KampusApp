@@ -1,0 +1,58 @@
+﻿@page
+@model KampusApp.Pages.MahasiswaList.IndexModel
+
+<br />
+<div class="container row p-o m-0">
+    <div class="col-9">
+        <h2 class="text-info">List Mahasiswa</h2>
+    </div>
+    <div class="col-3">
+        <a asp-page="Create" class="btn btn-info form-control text-white">Tambah Data Mahasiswa</a>
+    </div>
+
+    <div class="col-12 border p-3 mt-3">
+        <form method="post">
+            @if (Model.mahasiswa.Count() > 0)
+            {
+                <table class="table table-striped border">
+                    <tr class="table-secondary">
+                        <th>
+                            <label asp-for="mahasiswa.FirstOrDefault().NIM"></label>
+                        </th>
+                        <th>
+                            <label asp-for="mahasiswa.FirstOrDefault().Nama"></label>
+                        </th>
+                        <th>
+                            <label asp-for="mahasiswa.FirstOrDefault().Alamat"></label>
+                        </th>
+                        <th>
+
+                        </th>
+                    </tr>
+                    @foreach(var item in Model.mahasiswa)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(m => item.NIM)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => item.Nama)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => item.Alamat)
+                        </td>
+                        <td>
+                            <a asp-page="Edit" asp-route-nim="@item.NIM" class="btn btn-success btn-sm">Edit</a>
+                            <button asp-page-handler="Delete" asp-route-nim="@item.NIM" onclick="return confirm('Anda yakin ingin menghapus data ?')" class="btn btn-danger btn-sm">Delete</button>
+                        </td>
+                    </tr>
+                    }
+                </table>
+            }
+            else
+            {
+                <p>Tidak ada data mahasiswa. </p>
+            }
+        </form>
+    </div>
+</div>

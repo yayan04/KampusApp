@@ -9,6 +9,7 @@ namespace KampusApp.Model
     public class Mahasiswa
     {
         [Key]
+        [Required]
         public int NIM { get; set; }
 
         [Required]

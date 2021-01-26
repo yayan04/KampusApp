@@ -1,0 +1,52 @@
+﻿@page
+@model KampusApp.Pages.MahasiswaList.CreateModel
+@{
+}
+
+<br />
+<h2 class="text-info">Tambah Data Mahasiswa</h2>
+<br />
+
+<div class="border container" style="padding:30px">
+    <form method="post">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="mahasiswa.NIM"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="mahasiswa.NIM" class="form-control" />
+            </div>
+            <span asp-validation-for="mahasiswa.NIM" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="mahasiswa.Nama"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="mahasiswa.Nama" class="form-control" />
+            </div>
+            <span asp-validation-for="mahasiswa.Nama" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="mahasiswa.Alamat"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="mahasiswa.Alamat" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3 offset-2">
+                <input type="submit" value="Tambah" class="btn btn-primary form-control" />
+            </div>
+            <div class="col-3">
+                <a asp-page="Index" class="btn btn-success form-control">Back to List</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts{ 
+    <partial name="_ValidationScriptsPartial" />
+}
