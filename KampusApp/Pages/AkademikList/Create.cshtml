@@ -1,0 +1,54 @@
+﻿@page
+@model KampusApp.Pages.AkademikList.CreateModel
+@{
+}
+
+<br />
+<h2 class="text-info">Input Akademik</h2>
+<br />
+
+<div class="border container" style="padding:30px">
+    <form method="post">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="akademik.NIM"></label>
+            </div>
+            <div class="col-6">
+                <select asp-for="akademik.NIM" class="form-control" >
+                    @foreach(var item in Model.mahasiswa)
+                    {
+                        <option value="@item.NIM">@item.NIM</option>
+                    }
+                </select>
+            </div>
+            <span asp-validation-for="akademik.NIM" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="akademik.IDMatakuliah"></label>
+            </div>
+            <div class="col-6">
+                <select asp-for="akademik.IDMatakuliah" class="form-control">
+                    @foreach (var item in Model.matakuliah)
+                    {
+                        <option value="@item.IDMatakuliah">@item.IDMatakuliah</option>
+                    }
+                </select>
+            </div>
+            <span asp-validation-for="akademik.IDMatakuliah" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-3 offset-2">
+                <input type="submit" value="Tambah" class="btn btn-primary form-control" />
+            </div>
+            <div class="col-3">
+                <a asp-page="Index" class="btn btn-success form-control">Kembali</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

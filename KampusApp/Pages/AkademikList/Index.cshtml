@@ -1,0 +1,53 @@
+﻿@page
+@model KampusApp.Pages.AkademikList.IndexModel
+@{
+}
+
+<br />
+<div class="container row p-o m-0">
+    <div class="col-9">
+        <h2 class="text-info">Info Akademik</h2>
+    </div>
+    <div class="col-3">
+        <a asp-page="Create" class="btn btn-info form-control text-white">Input Akademik</a>
+    </div>
+
+    <div class="col-12 border p-3 mt-3">
+        <form method="post">
+            @if (Model.akademik.Count() > 0)
+            {
+                <table class="table table-striped border">
+                    <tr class="table-secondary">
+                        <th>
+                            <label asp-for="akademik.FirstOrDefault().NIM"></label>
+                        </th>
+                        <th>
+                            <label asp-for="akademik.FirstOrDefault().NamaMahasiswa"></label>
+                        </th>
+                        <th>
+                            <label asp-for="akademik.FirstOrDefault().NamaMatakuliah"></label>
+                        </th>
+                    </tr>
+                    @foreach (var item in Model.akademik)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(m => item.NIM)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.NamaMahasiswa)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.NamaMatakuliah)
+                            </td>
+                        </tr>
+                    }
+                </table>
+            }
+            else
+            {
+                <p>Tidak ada data akademik. </p>
+            }
+        </form>
+    </div>
+</div>

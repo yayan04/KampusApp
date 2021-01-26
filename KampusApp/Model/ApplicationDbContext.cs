@@ -16,5 +16,7 @@ namespace KampusApp.Model
         public DbSet<Mahasiswa> Mahasiswa { get; set; }
 
         public DbSet<Matakuliah> Matakuliah { get; set; }
+
+        public DbSet<Akademik> Akademik { get; set; }
     }
 }
